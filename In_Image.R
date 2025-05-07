@@ -54,3 +54,7 @@ in_image_possible$numberic_id<-as.numeric(in_image_possible$numberic_id)
 in_image<-subset(in_image_possible, numberic_id>=1590 & numberic_id<=2088)
 dim(in_image)
 table(in_image$ID_status)
+
+#This is a papr box
+in_image<-subset(in_image, ID_status=="para")
+
