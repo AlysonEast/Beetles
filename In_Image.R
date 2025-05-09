@@ -1,7 +1,9 @@
 library(neonUtilities)
 library(dplyr)
 
-neon_token<-read.delim("/home/alysoneast/NEON_TOKEN",header = FALSE)[1,1]
+user<-Sys.getenv("USERNAME")
+
+neon_token<-read.delim(paste0("/home/",user,"/NEON_TOKEN"),header = FALSE)[1,1]
 #Set dpID for products of interest
 Beetle_dpID<-"DP1.10022.001"
 
@@ -57,4 +59,6 @@ table(in_image$ID_status)
 
 #This is a papr box
 in_image<-subset(in_image, ID_status=="para")
+
+write.csv(in_image, "/home/aly/Beetles/InImage.csv")
 
